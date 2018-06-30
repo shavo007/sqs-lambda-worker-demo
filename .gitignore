@@ -1,0 +1,14 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+.webpack
+.nyc_output
+reports
+*.clinic-doctor
+*.clinic-doctor.html
+
+yarn-error.log
