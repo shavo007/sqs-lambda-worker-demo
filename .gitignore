@@ -12,3 +12,6 @@ reports
 *.clinic-doctor.html
 
 yarn-error.log
+
+.terraform
+terraform.tfstate
