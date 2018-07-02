@@ -21,7 +21,7 @@ provider:
   name: aws
   runtime: nodejs8.10
   environment:
-      QUEUE: ${ssm:/${self:custom.stage}/sqs-lambda/queue-name~true}
+      # QUEUE: ${ssm:/${self:custom.stage}/sqs-lambda/queue-name~true}
 
 # you can overwrite defaults here
 #  stage: dev
