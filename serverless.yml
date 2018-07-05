@@ -26,11 +26,20 @@ provider:
 # you can overwrite defaults here
 #  stage: dev
   region: ap-southeast-2
+  iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - sqs:*
+    Resource: arn:aws:sqs:ap-southeast-2:xxx:sqs-lambda-example-queue
 
 
 functions:
   worker:
     handler: src/worker.default
+    events:
+      - sqs:
+          arn: arn:aws:sqs:ap-southeast-2:xxx:sqs-lambda-example-queue
+          batchSize: 10
     description: worker fn consuming from sqs
     reservedConcurrency: 5
   producer:
