@@ -28,6 +28,7 @@ yarn
 ```
 
 ### Terraform (create sqs queue)
+
 ```bash
 1.  Create sqs queue on aws account
 2.  cd terraform && terraform init
@@ -38,19 +39,19 @@ yarn
 ### Deploy
 
 1.  Create sqs queue via terraform above
-2.  Update the sqs queue url in src/producer.js file
+2.  Update the sqs queue url in src/producer.js file and the arn in serverless.yml
 
-3. Assuming you've already set up your default AWS credentials
+3.  Assuming you've already set up your default AWS credentials
 
 `yarn deploy:dev` will deploy to "dev" environment.
 
-Right now there is a [PR](https://github.com/serverless/serverless/pull/5074) open for serverless fwk. So for now manually add event source for lambda fn producer and change IAM role permissions to have access to sqs service.
+**UPDATE** change is now in the latest serverless release 1.28.0
 
-![](docs/sqs-event-source.png)
+Will add your queue as the trigger for worker function
 
 ## Run
 
-Trigger the producer fn via a test event. 
+Trigger the producer fn via a test event.
 
 The producer will generate random messages and send them to the queue.
 You can send in up to 10 messages at a time based on the config `batch size`
@@ -58,7 +59,6 @@ You can send in up to 10 messages at a time based on the config `batch size`
 **Managing Throughput** with concurrency control
 
 The consumer function can handle up to 5 concurrent executions currently. This config can be changed in the `serverless.yml` file
-
 
 ### Renovate
 
