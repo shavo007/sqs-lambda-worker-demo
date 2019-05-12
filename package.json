@@ -96,7 +96,7 @@
 		"lint-staged": "7.3.0",
 		"mocha": "5.2.0",
 		"mocha-lcov-reporter": "1.3.0",
-		"nyc": "12.0.2",
+		"nyc": "14.1.1",
 		"prettier": "1.16.0",
 		"rimraf": "2.6.3",
 		"serverless": "1.36.2",
